@@ -1,17 +1,43 @@
 import '@/styles/globals.css';
 
 import { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import { ReactNode } from 'react';
+import { Open_Sans } from 'next/font/google';
 
-import { cn } from '@/lib/utils';
-
-const inter = Inter({ subsets: ['latin'], variable: '--font-primary' });
+import AppLayout from 'src/layouts/AppLayout';
 
 export const metadata: Metadata = {
-  title: '',
-  description: ''
+  title: 'Daniel Mark | Engineering Portfolio & Personal Website',
+  description:
+    "Experienced Web3 Front-End Engineer specializing in NFT platforms, DeFi applications, and blockchain integrations. With 7+ years in full-stack development, I've led multi-million-dollar projects, co-founded ventures, and built seamless, high-performance user experiences. Passionate about innovation, decentralization, and the intersection of design and technology.",
+  openGraph: {
+    type: 'website',
+    url: 'https://thedanielmark.com/',
+    title: 'Daniel Mark | Engineering Portfolio & Personal Website',
+    description:
+      "Experienced Web3 Front-End Engineer specializing in NFT platforms, DeFi applications, and blockchain integrations. With 7+ years in full-stack development, I've led multi-million-dollar projects, co-founded ventures, and built seamless, high-performance user experiences. Passionate about innovation, decentralization, and the intersection of design and technology.",
+    images: [
+      {
+        url: 'https://thedanielmark.com/meta-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: "Daniel Mark's Portfolio"
+      }
+    ]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Daniel Mark | Engineering Portfolio & Personal Website',
+    description:
+      "Experienced Web3 Front-End Engineer specializing in NFT platforms, DeFi applications, and blockchain integrations. With 7+ years in full-stack development, I've led multi-million-dollar projects, co-founded ventures, and built seamless, high-performance user experiences. Passionate about innovation, decentralization, and the intersection of design and technology.",
+    images: ['https://thedanielmark.com/meta-image.jpg']
+  }
 };
+
+const openSans = Open_Sans({
+  subsets: ['latin'],
+  display: 'swap'
+});
 
 interface RootLayoutProps {
   children: ReactNode;
@@ -19,9 +45,9 @@ interface RootLayoutProps {
 
 const RootLayout = ({ children }: RootLayoutProps) => {
   return (
-    <html lang="en">
-      <body className={cn(inter.variable, 'font-primary')} suppressHydrationWarning>
-        <main>{children}</main>
+    <html lang="en" className={openSans.className}>
+      <body className="h-screen w-screen" suppressHydrationWarning>
+        <AppLayout>{children}</AppLayout>
       </body>
     </html>
   );
