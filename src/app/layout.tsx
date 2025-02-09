@@ -46,6 +46,14 @@ interface RootLayoutProps {
 const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <html lang="en" className={openSans.className}>
+      <noscript>
+        <iframe
+          src="https://www.googletagmanager.com/ns.html?id=GTM-5T4LTF8F"
+          height="0"
+          width="0"
+          style={{ display: 'none', visibility: 'hidden' }}
+        ></iframe>
+      </noscript>
       <body className="h-screen w-screen" suppressHydrationWarning>
         <AppLayout>{children}</AppLayout>
       </body>
