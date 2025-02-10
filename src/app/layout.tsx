@@ -5,6 +5,7 @@ import { ReactNode } from 'react';
 import { Open_Sans } from 'next/font/google';
 
 import AppLayout from 'src/layouts/AppLayout';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: 'Daniel Mark | Engineering Portfolio & Personal Website',
@@ -46,15 +47,18 @@ interface RootLayoutProps {
 const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <html lang="en" className={openSans.className}>
+      <head>
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-820WLVPSHX" />
+        <Script id="google-analytics">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-820WLVPSHX');
+          `}
+        </Script>
+      </head>
       <body className="h-screen w-screen" suppressHydrationWarning>
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-5T4LTF8F"
-            height="0"
-            width="0"
-            style={{ display: 'none', visibility: 'hidden' }}
-          ></iframe>
-        </noscript>
         <AppLayout>{children}</AppLayout>
       </body>
     </html>
