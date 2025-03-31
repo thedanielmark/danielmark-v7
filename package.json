@@ -26,8 +26,8 @@
     "clsx": "2.1.1",
     "framer-motion": "^12.4.1",
     "next": "15.1.6",
-    "react": "19.0.0-rc-65a56d0e-20241020",
-    "react-dom": "19.0.0-rc-65a56d0e-20241020",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
     "tailwind-merge": "2.6.0",
     "zod": "3.24.1"
   },
