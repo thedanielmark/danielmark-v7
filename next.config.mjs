@@ -1,4 +1,5 @@
 import './src/lib/env/env.mjs';
+import { IgnorePlugin } from 'webpack';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -15,7 +16,7 @@ const nextConfig = {
       'x.clarity.ms',
       'c.bing.com',
       'cdn.jsdelivr.net'
-      // Add any CDNs or external sources you're loading from
+      // Add more if you're pulling images from other sources
     ]
   },
   async headers() {
@@ -33,12 +34,8 @@ const nextConfig = {
   },
   webpack(config, { isServer }) {
     if (!isServer) {
-      // optional: remove moment locales if you're using moment
       config.plugins.push(
-        new (require('webpack').IgnorePlugin)({
-          resourceRegExp: /^\.\/locale$/,
-          contextRegExp: /moment$/
-        })
+        new IgnorePlugin({ resourceRegExp: /^\.\/locale$/, contextRegExp: /moment$/ })
       );
     }
     return config;
