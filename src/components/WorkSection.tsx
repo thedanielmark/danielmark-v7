@@ -6,24 +6,30 @@ import Image from 'next/image';
 
 const fadeIn = {
   initial: { opacity: 0 },
-  animate: { opacity: 1, transition: { duration: 2, ease: [0.6, -0.05, 0.01, 0.99] } }
+  animate: { opacity: 1, transition: { duration: 1.5, ease: [0.6, -0.05, 0.01, 0.99] } }
 };
 
-const WorkSection = () => (
-  <motion.div variants={fadeIn} className="mt-10">
-    <p className="text-zinc-200 font-light">I've worked with some of the best companies so far.</p>
-    <div className="flex items-center gap-10 mt-5">
-      <Link href="https://www.hashgraph.swiss/" target="_blank">
-        <Image src="/logos/tha.png" alt="THA" width={100} height={40} />
+export const WorkSection = () => (
+  <motion.div variants={fadeIn} initial="initial" animate="animate">
+    <p className="text-zinc-400 text-lg font-medium">
+      I've had the privilege of working with some of the best companies in the industry.
+    </p>
+    <div className="flex flex-wrap justify-start gap-8 mt-6">
+      <Link href="https://www.hashgraph.swiss/" target="_blank" aria-label="Hashgraph">
+        <Image src="/logos/tha.png" alt="THA" width={120} height={48} className="object-contain" />
       </Link>
-      <Link href="https://neo.org/" target="_blank">
-        <Image src="/logos/neo.png" alt="Neo" width={100} height={40} />
+      <Link href="https://neo.org/" target="_blank" aria-label="Neo">
+        <Image src="/logos/neo.png" alt="Neo" width={120} height={48} className="object-contain" />
       </Link>
-      <Link href="https://www.hpe.com/" target="_blank">
-        <Image src="/logos/hpe.png" alt="HP Enterprise" width={100} height={40} />
+      <Link href="https://www.hpe.com/" target="_blank" aria-label="HP Enterprise">
+        <Image
+          src="/logos/hpe.png"
+          alt="HP Enterprise"
+          width={120}
+          height={48}
+          className="object-contain"
+        />
       </Link>
     </div>
   </motion.div>
 );
-
-export default WorkSection;

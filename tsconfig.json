@@ -1,12 +1,13 @@
 {
   "compilerOptions": {
-    "incremental": true, // https://nextjs.org/docs/basic-features/typescript#incremental-type-checking
+    "incremental": true,
     "baseUrl": ".",
     "paths": {
       "@/components/*": ["./src/components/*"],
       "@/pages/*": ["./src/pages/*"],
       "@/lib/*": ["./src/lib/*"],
       "@/hooks/*": ["./src/hooks/*"],
+      "@/utilities/*": ["./src/utilities/*"],
       "@/styles/*": ["./src/styles/*"],
       "@/mocks/*": ["./__mocks__/*"],
       "@/tests/*": ["./.jest/*"]
